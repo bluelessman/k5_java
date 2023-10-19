@@ -1,0 +1,12 @@
+package edu;
+
+public class test2 {
+	public static void main(String[] args) {
+		int depositAmount;
+		depositAmount = 50000;
+		boolean isMarried = true;
+		char gender = 'F';
+		gender = 'M';
+		System.out.println(depositAmount+"\n"+isMarried+"\t"+gender);
+	}
+}

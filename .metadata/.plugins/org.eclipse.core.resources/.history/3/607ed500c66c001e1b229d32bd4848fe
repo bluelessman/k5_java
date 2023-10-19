@@ -1,0 +1,12 @@
+package edu;
+
+public class Test13 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		byte a = 0b00010001;
+		byte b = 0b00100010;
+
+	}
+
+}
