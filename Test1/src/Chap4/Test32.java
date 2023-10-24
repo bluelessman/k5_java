@@ -48,6 +48,6 @@ public class Test32 {
 		for (int i : arr3) {
 			System.out.println(i);
 		}
-
+		sc.close();
 	}
 }

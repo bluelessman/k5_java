@@ -21,7 +21,6 @@ public class rowcolumncross {
 			}
 		}
 		// 행렬곱 계산
-		int[][] AB = new int[2][2];
 		for (int i = 0; i < A.length; i++) {
 			for(int j =0;j<B[0].length;j++) {
 				int sum = 0;

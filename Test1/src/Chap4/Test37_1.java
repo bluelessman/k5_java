@@ -30,6 +30,7 @@ public class Test37_1 {
 		System.out.println("평 균 : "+avg);
 		System.out.println("최댓값 : "+max);
 		System.out.println("최솟값 : "+min);
+		sc.close();
 	}
 
 }
