@@ -1,0 +1,5 @@
+package Chap5;
+
+public class sta3 extends Person {
+
+}

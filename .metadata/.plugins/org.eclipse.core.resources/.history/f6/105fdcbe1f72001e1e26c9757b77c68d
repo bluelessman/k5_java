@@ -1,0 +1,13 @@
+package Chap5_Unit;
+
+public class Starcraft {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Marine marine = new Marine();
+		Firebat firebat = new Firebat();
+		marine.unitStatus();
+		firebat.unitStatus();
+	}
+
+}

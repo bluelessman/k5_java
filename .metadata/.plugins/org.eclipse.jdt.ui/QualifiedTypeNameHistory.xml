@@ -1,2 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="Chap5.Employee"/>
+    <fullyQualifiedTypeName name="Chap5_Unit.Unit"/>
+    <fullyQualifiedTypeName name="Chap7.Employee"/>
+    <fullyQualifiedTypeName name="Chap7.Salesman"/>
+    <fullyQualifiedTypeName name="Chap7.Consultant"/>
+    <fullyQualifiedTypeName name="Chap7.Director"/>
+    <fullyQualifiedTypeName name="Chap7.IPhoneMessenger"/>
+    <fullyQualifiedTypeName name="Chap7.Messenger"/>
+    <fullyQualifiedTypeName name="Chap7.GalaxyMessenger"/>
+    <fullyQualifiedTypeName name="java.lang.SafeVarargs"/>
+    <fullyQualifiedTypeName name="Chap8.Employee"/>
+    <fullyQualifiedTypeName name="Chap8.Director"/>
+    <fullyQualifiedTypeName name="java.lang.Object"/>
+    <fullyQualifiedTypeName name="Chap8.Salesman"/>
+    <fullyQualifiedTypeName name="Chap8.Manager"/>
+    <fullyQualifiedTypeName name="Chap8.MyLinkedList"/>
+</qualifiedTypeNameHistroy>

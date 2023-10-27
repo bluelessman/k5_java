@@ -1,0 +1,5 @@
+package Chap7_Geometry;
+
+public interface Geometry {
+
+}

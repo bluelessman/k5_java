@@ -1,0 +1,20 @@
+package Chap7_Geometry;
+
+public interface Geometry {
+	private final int[] xArr;
+	private int[] yArr;
+	
+	public abstract double getLength();
+	public abstract double getArea();
+	void setPoint(int x, int y) {
+		if(xArr == null) {
+			xArr = new int[1];
+			yArr = new int[1];
+			xArr[0] = x;
+			yArr[0] = y;
+		}
+		else {
+			int tlen = 
+		}
+	}
+}

@@ -1,0 +1,17 @@
+package Chap7;
+
+public class GalaxyMessenger implements Messenger {
+
+	@Override
+	public String getMessage() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setMEssage(String msg) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
