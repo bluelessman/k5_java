@@ -1,5 +1,0 @@
-package Chap5_Unit;
-
-public class Firebat extends Unit {
-
-}

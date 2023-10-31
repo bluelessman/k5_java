@@ -42,6 +42,13 @@ public class MyLinkedList {
 	public int len() {
 		return len;
 	}
+	public boolean isEmpty() {
+		if(len==0) {
+			return true;
+		}else {
+			return false;
+		}
+	}
 	//특정 인덱스의 노드의 데이터 변경
 	public void setData(int n, String data) {
 		if(len<=n) {
@@ -77,7 +84,12 @@ public class MyLinkedList {
 				next = temp;
 				temp = temp.link;
 			}
-			next.link = null;
+			if(next == null) {
+				head = null;
+			}else {
+				next.link = null;
+			}
+			len--;
 			return temp.data;
 		}
 	}

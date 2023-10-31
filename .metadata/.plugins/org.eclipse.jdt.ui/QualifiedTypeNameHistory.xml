@@ -17,4 +17,5 @@
     <fullyQualifiedTypeName name="Chap8.Salesman"/>
     <fullyQualifiedTypeName name="Chap8.Manager"/>
     <fullyQualifiedTypeName name="Chap8.MyLinkedList"/>
+    <fullyQualifiedTypeName name="Chap8.MyDoubleLinkedList"/>
 </qualifiedTypeNameHistroy>
