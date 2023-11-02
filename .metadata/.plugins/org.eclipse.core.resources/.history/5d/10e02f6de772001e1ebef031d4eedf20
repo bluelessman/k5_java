@@ -1,8 +1,0 @@
-package Chap7_Geometry;
-
-public interface Geometry {
-	int[] xArr = new int[4];
-	int[] yArr = new int[4];
-	
-	public abstract double getLength();
-}
