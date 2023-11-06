@@ -1,0 +1,25 @@
+package Chap11;
+
+public class ExTest {
+public void c() {
+	System.out.println("C1");
+	int v = 10/10;
+	System.out.println("C2");
+}
+public void b() {
+	System.out.println("b1");
+	c();
+	System.out.println("b2");
+}
+public void a() {
+	System.out.println("a1");
+	b();
+	System.out.println("a2");
+}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ExTest et = new ExTest();
+		et.a();
+	}
+
+}

@@ -1,0 +1,23 @@
+package Chap10;
+import java.util.ArrayList;
+import java.util.List;
+public class Star {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		print_star(10);
+	}
+public static void print_star(int n) {
+	List<String> L = new ArrayList<>();
+	String star = null;
+	for(int i = 0;i<n;i++) {
+//		L.add("*".repeat(i+1));
+		star = "";
+		for(int j=0;j<=i;j++) {
+			star += "*";
+		}
+		System.out.println(star);
+		L.add(star);
+	}
+	L.forEach(s->System.out.println(s));
+}
+}
