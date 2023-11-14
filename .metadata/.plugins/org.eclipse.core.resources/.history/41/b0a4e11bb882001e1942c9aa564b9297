@@ -1,0 +1,85 @@
+package matrixTest;
+
+public class Matrix {
+	private int[][] matrix;
+	private int row;
+	private int column;
+	
+	public Matrix(int[] array,int index, int row, int column){
+		this.row = row;
+		this.column = column;
+		this.matrix = new int[row][column];
+		for(int i=0;i<row;i++) {
+			for(int j=0;j<column;j++) {
+				matrix[i][j] = array[index++];
+			}
+		}
+	}
+	public Matrix(int[][] matrix) {
+		this.matrix = matrix;
+		this.row = matrix.length;
+		this.column = matrix[0].length;
+	}
+	
+	public void print() {
+		System.out.println("=".repeat(30)+"\n");
+		for(int i=0;i<row;i++) {
+			for(int j=0;j<column;j++) {
+				System.out.print(matrix[i][j]+"\t");
+			}
+			System.out.println("\n");
+		}
+		System.out.println("=".repeat(30));
+	}
+	
+	public int row() {
+		return this.row;
+	}
+	public int column() {
+		return this.column;
+	}
+	
+	public int[][] getMatrix() {
+		return this.matrix;
+	}
+	public static Matrix sum(Matrix a, Matrix b) {
+		int[][] sumMatrix = new int[a.row()][a.column()];
+		int[][] aMatrix = a.getMatrix();
+		int[][] bMatrix = b.getMatrix();
+		for(int i=0;i<a.row();i++) {
+			for(int j=0;j<a.column();j++) {
+				sumMatrix[i][j] = aMatrix[i][j]+bMatrix[i][j];
+			}
+		}
+		Matrix newMatrix = new Matrix(sumMatrix);
+		return newMatrix;
+	}
+	
+	public Matrix cross(Matrix a, Matrix b) {
+		int[][] crossMatrix = new int[a.row()][b.column()];
+		int[][] aMatrix = a.getMatrix();
+		int[][] bMatrix = b.getMatrix();
+		for (int i = 0; i < a.row(); i++) {
+			for(int j =0;j<b.column();j++) {
+				int sum = 0;
+				for(int k =0; k<b.row();k++) {
+					sum += (aMatrix[i][k]*bMatrix[k][j]);
+				}
+				crossMatrix[i][j] = sum;
+			}
+	}
+		Matrix newMatrix = new Matrix(crossMatrix);
+		return newMatrix;
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+}
