@@ -32,7 +32,7 @@ public static void main(String[] args) {
 	float arravg = (float)arrsum/(float)arr.size();
 	System.out.printf("총합: %d, 평균: %.2f, 최솟값: %d, 최댓값: %d",arrsum,arravg,arrmin,arrmax);
 	
-	List<Integer> linked = new LinkedList<Integer>();
+//	List<Integer> linked = new LinkedList<Integer>();
 	
 }
 }

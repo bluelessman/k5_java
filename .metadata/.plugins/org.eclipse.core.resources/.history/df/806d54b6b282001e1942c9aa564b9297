@@ -1,9 +1,0 @@
-package matrixTest;
-
-public class Matrix {
-	int[] matrix;
-	
-	public Matrix(int[] array,int index, int row, int column){
-		
-	}
-}
