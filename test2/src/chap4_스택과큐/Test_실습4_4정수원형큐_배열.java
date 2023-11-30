@@ -132,7 +132,7 @@ public class Test_실습4_4정수원형큐_배열 {
 				try {
 					oq.enque(rndx);
 				} catch(IntQueue3.OverflowIntQueue3Exception e) {
-					System.out.println("stack이 가득찼있습니다.");
+					System.out.println("stack이 가득차있습니다.");
 				}
 				break;
 

@@ -81,9 +81,6 @@ public objectQueue2(int maxlen) {
 		}
 		que[rear++] = x;
 		num++;
-		if(rear==capacity) {
-			rear=0;
-		}
 	}
 
 //--- 큐에서 데이터를 디큐 ---//
@@ -91,11 +88,12 @@ public objectQueue2(int maxlen) {
 		if(num<=0) {
 			throw new EmptyQueueException();
 		}
-		Point3 temp = que[front++];
+		Point3 temp = que[front];
 		num--;
-		if(front==capacity) {
-			front=0;
+		for(int i=0;i<num;i++) {
+			que[i] = que[i+1];
 		}
+		rear--;
 		return temp;
 	}
 
@@ -115,9 +113,8 @@ public objectQueue2(int maxlen) {
 //--- 큐에서 x를 검색하여 인덱스(찾지 못하면 –1)를 반환 ---//
 	public int indexOf(Point3 x) {
 		for(int i=0;i<num;i++) {
-			int idx = (i+front)%capacity;
-			if(que[idx].equals(x)) {
-				return idx;
+			if(que[i].equals(x)) {
+				return i;
 			}
 		}
 		return -1;
@@ -147,8 +144,7 @@ public objectQueue2(int maxlen) {
 	public void dump() {
 		System.out.print("[ ");
 		for(int i=0;i<num;i++) {
-			int idx = (i+front)%capacity;
-			System.out.print(que[idx].toString()+" ");
+			System.out.print(que[i].toString()+" ");
 		}
 		System.out.print("]");
 	}
