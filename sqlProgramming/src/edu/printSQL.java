@@ -12,7 +12,10 @@ public class printSQL {
 		this.rs = rs;
 
 	}
-
+	
+	public void setRs(ResultSet rs) {
+		this.rs = rs;
+	}
 	public void print() throws SQLException {
 		rsMeta = rs.getMetaData();
 		while (rs.next()) {
