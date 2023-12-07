@@ -1,5 +1,4 @@
 package edu2;
-import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Stack;
  
@@ -9,6 +8,7 @@ public class N_Queen {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         solveN_Queen(n);
+        sc.close();
     }
      
     public static void solveN_Queen(int n) {
@@ -109,6 +109,7 @@ public class N_Queen {
         }
         System.out.println();
     }
+
      
 }
 

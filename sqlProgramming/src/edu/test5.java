@@ -38,7 +38,7 @@ public class test5 {
 			st.close();
 			con.close();
 		}catch (Exception e) {
-			System.out.println("연결 실패"+e);
+			System.out.println("연결 실패"+e.getMessage());
 		}
 	}
 

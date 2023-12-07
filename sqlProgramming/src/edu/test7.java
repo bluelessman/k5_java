@@ -45,7 +45,7 @@ public class test7 {
 			con.close();
 			
 		} catch (Exception e) {
-			System.out.println("오류 발생"+ e);
+			System.out.println("오류 발생"+ e.getMessage());
 		}
 		for (CountryLanguage countryLanguage : list) {
 			System.out.println(countryLanguage);

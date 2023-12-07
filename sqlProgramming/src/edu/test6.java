@@ -42,7 +42,7 @@ public class test6 {
 			con.close();
 		}catch (Exception e) {
 			// TODO: handle exception
-			System.out.println("연결 실패"+e);
+			System.out.println("연결 실패"+e.getMessage());
 		}
 		for (City city : list) {
 			System.out.println(city);

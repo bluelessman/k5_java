@@ -177,11 +177,12 @@ public class Chap5_Test_QueenEight_4회차 {
 		st.push(p);// 스택에 현 위치 객체를 push
 		ix++;// ix는 행별로 퀸 배치되는 것을 말한다.
 		while (true) {
-			if (st.isEmpty() && iy == 8) // ix가 8이면 8개 배치 완료, stack이 empty가 아니면 다른 해를 구한다
-				break;
+			// 교수님이 생각하신 완료조건인데 필요없음;; 아래에서 처리하면 된다.
+//			if (st.isEmpty()&&iy==8) // iy가 8이면 8개 배치 완료, stack이 empty가 아니면 다른 해를 구한다
+//				break;
 
 			if ((iy = nextMove(d, ix, iy)) == -1) {// 현재 row에 퀸 배치 불가, 배치 가능시 가능한 첫 column을 iy에 반환
-
+				if(st.isEmpty()) break; //스택이 비어있다 = 탐색종료
 				Point preQ = st.pop(); // 스택에서 이전 row의 퀸 위치 팝하여 새 객체에 저장
 
 				// 이전 row의 퀸 위치로 좌표 이동
@@ -192,7 +193,7 @@ public class Chap5_Test_QueenEight_4회차 {
 				d[ix][iy] = 0;
 				count--;
 
-				iy++;// 좌표 다음 column으로 이동
+				iy++;// 현재 위치에서 다음 column으로 이동
 
 			} else {// 현재 row에 퀸 배치 가능(column=iy)
 
@@ -226,7 +227,8 @@ public class Chap5_Test_QueenEight_4회차 {
 				d[ix][iy] = 0;
 				count--;
 
-				iy++;// 좌표 다음 column으로 이동
+				iy++;// 현재 위치에서 다음 column으로 이동
+
 
 			}
 
@@ -260,6 +262,7 @@ public class Chap5_Test_QueenEight_4회차 {
 		return true;
 	}
 
+	
 	// 배열 d에서 행 cx, 열 cy에 퀸을 남동, 북서 대각선으로 배치할 수 있는지 조사
 	public static boolean checkDiagSE(int[][] d, int cx, int cy) {// x++, y++ or x--, y--
 		int c = cy - cx + 7;

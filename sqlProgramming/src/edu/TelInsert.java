@@ -3,9 +3,12 @@ package edu;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+
 import java.util.Scanner;
 
-public class Insert {
+
+
+public class TelInsert {
 	public static String[] data() {
 		String[] output = new String[7];
 		String[] index = { "Name", "Address", "MP", "JP", "HP", "Email", "Cate" };
@@ -22,8 +25,8 @@ public class Insert {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		
 		Connection con = null;
+		
 		try {
 			String driver = "com.mysql.cj.jdbc.Driver";
 			String url = "jdbc:mysql://localhost:3306/world";
@@ -45,7 +48,7 @@ public class Insert {
 			con.close();
 			
 		} catch (Exception e) {
-			System.out.println(e);
+			System.out.println(e.getMessage());
 		}
 	}
 

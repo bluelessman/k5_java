@@ -130,19 +130,18 @@ class StackList {
 	}
 }
 
-public class Chap5_Test_MazingProblem_4회차 {
+public class maze {
 
 	static Offsets3[] moves = new Offsets3[8];// static을 선언하는 이유를 알아야 한다
 
 	public static void path(int[][] maze, int[][] mark, int ix, int iy) {
-
 		mark[1][1] = 1;
 		StackList st = new StackList(50);
 		Items3 temp = new Items3(0, 0, 0);// N :: 0
 		temp.x = 1;
 		temp.y = 1;
 		temp.dir = 2;// E:: 2
-		mark[temp.x][temp.y] = 2;// 미로 찾기 궤적은 2로 표시
+		mark[temp.x][temp.y] = 1;// 미로 찾기 궤적은 2로 표시
 		st.push(temp);
 
 		while (!st.isEmpty()) // stack not empty
@@ -158,28 +157,29 @@ public class Chap5_Test_MazingProblem_4회차 {
 				int h = j + moves[d].b;
 				if ((g == ix) && (h == iy)) { // reached exit
 												// output path
-					Items3 newTmp = new Items3(i,j,d+1);
-					st.push( newTmp);
+//					Items3 newTmp = new Items3(i,j,d+1);
+//					st.push( newTmp);
+					mark[i][j] = 2;
 					mark[g][h] = 2;
-					while(!st.isEmpty()) {
-						Items3 track = st.pop();
-						System.out.println(track);
-						mark[track.x][track.y] = 2;
-					}
+//					while(!st.isEmpty()) {
+//						Items3 track = st.pop();
+//						System.out.println(track);
+//						mark[track.x][track.y] = 2;
+//					}
 					return;
 				}
 				if ((maze[g][h] == 0) && (mark[g][h] == 0)) { // new position
-					mark[g][h] = 1;
+					mark[i][j] = 2;
 					Items3 newTmp = new Items3(i,j,d+1);
 					st.push( newTmp);
 					i = g;
 					j = h;
 					d= 0;
+					continue;
 				}else {
 					++d;
 				}
 			}
-			
 		}
 		
 		System.out.println("no path in maze ");
