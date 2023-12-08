@@ -2,21 +2,19 @@ package chap6_Sorting;
 
 public class Chap6_Test_Merge배열2 {
 //--- 배열 a에 정렬한 결과를 return ---//
+	static int[] buff;
 	static void merge(int[] a, int left1, int right1, int left2, int right2) {
 //{2,4,6,8,11,13}과 {1,3,5,7,9,16,21}을 합병하여 정렬 결과를 만드는 코드를 작성
-		int pa = left1;
-		int pb = left2;
-		int na = right1+1;
-		int nb = right2+1;
-		int[] c = new int[right2-left1+1];
-		int pc = 0;
-		System.out.println(pa+" "+na+" "+pb+" "+nb);
-		while(pa<na&&pb<nb) c[pc++] = a[pa]>a[pb]?a[pb++]:a[pa++];
-		System.out.println(pa+" "+na+" "+pb+" "+nb);
-		while(pa<na) c[pc++] = a[pa++];
-		while(pb<nb) c[pc++] = a[pb++];
-		showData(c);
-		a = c.clone();
+		int i;
+		int p = 0;
+		int j = 0;
+		int k = left1;
+		buff = new int[right1-left1+1];
+		for(i=left1;i<=right1;i++) {
+			buff[p++]=a[i];
+		}
+		while(i<=right2&&j<p) a[k++] = buff[j]<=a[i]?buff[j++]:a[i++];
+		while(j<p) a[k++] = buff[j++];
 	}
 
 	static void showData(int[] d) {
