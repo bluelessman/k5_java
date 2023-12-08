@@ -161,7 +161,7 @@ class Stack3 {
 		for (Point point : data) {
 			System.out.print(point.toString() + " ");
 		}
-		System.out.print("]");
+		System.out.print("]\n");
 	}
 }
 
@@ -180,7 +180,8 @@ public class Chap5_Test_QueenEight_4회차 {
 			// 교수님이 생각하신 완료조건인데 필요없음;; 아래에서 처리하면 된다.
 //			if (st.isEmpty()&&iy==8) // iy가 8이면 8개 배치 완료, stack이 empty가 아니면 다른 해를 구한다
 //				break;
-
+			st.dump();
+			if(total==5)break;
 			if ((iy = nextMove(d, ix, iy)) == -1) {// 현재 row에 퀸 배치 불가, 배치 가능시 가능한 첫 column을 iy에 반환
 				if(st.isEmpty()) break; //스택이 비어있다 = 탐색종료
 				Point preQ = st.pop(); // 스택에서 이전 row의 퀸 위치 팝하여 새 객체에 저장

@@ -6,9 +6,16 @@
 		</list>
 	</section>
 	<section name="ChooseWorkspaceDialogSettings">
-		<item key="DIALOG_X_ORIGIN" value="670"/>
+		<item key="DIALOG_X_ORIGIN" value="371"/>
 		<item key="DIALOG_Y_ORIGIN" value="341"/>
 	</section>
 	<section name="ExternalProjectImportWizard">
+	</section>
+	<section name="org.eclipse.ui.internal.ide.dialogs.ProjectContentsLocationArea">
+		<item key="OUTSIDE_LOCATION" value="C:\bluelessman"/>
+	</section>
+	<section name="WORKBENCH_SETTINGS">
+		<list key="ENABLED_TRANSFERS">
+		</list>
 	</section>
 </section>

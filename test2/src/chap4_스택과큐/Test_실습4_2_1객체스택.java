@@ -1,6 +1,5 @@
 package chap4_스택과큐;
 
-import java.io.PrintWriter;
 
 //4장 소스코드의 Point2 버젼을 학습한 후에 Queue 버젼을 구현한다.
 
