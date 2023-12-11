@@ -1,8 +1,4 @@
-
 package Chap5_Recursive;
-//https://www.geeksforgeeks.org/n-queen-problem-backtracking-3/?ref=lbp
-
-//N Queen problem / backtracking
 
 import Chap5_Recursive.Stack3.EmptyGenericStackException;
 
@@ -16,8 +12,8 @@ import Chap5_Recursive.Stack3.EmptyGenericStackException;
 *  rook 2개/a, h, knight 2개/b, g, bishop 2개/c, f, queen 1개/black queen은 black 칸에, 폰 8개
 */
 
-public class Chap5_Test_QueenEight_4회차 {
-	public static void solveQueen(int[][] d) throws EmptyGenericStackException {
+public class Rook {
+	public static void solveRook(int[][] d) throws EmptyGenericStackException {
 		int total = 0;// 총 해답 수
 		int count = 0;// 퀸 배치 갯수
 		int ix = 0, iy = 0;// 행 ix, 열 iy
@@ -63,7 +59,7 @@ public class Chap5_Test_QueenEight_4회차 {
 				
 				System.out.println("\n개수 : " + ++total);// 현재까지의 해답 수 출력
 
-				showQueens(d);// 퀸 위치 출력
+				showRooks(d);// 퀸 위치 출력
 
 				// 마지막 퀸 위치 스택에서 팝하여 새 객체에 저장
 				Point q = st.pop();
@@ -97,30 +93,10 @@ public class Chap5_Test_QueenEight_4회차 {
 		return true;
 	}
 
-	// 배열 d에서 행 cx, 열 cy에 퀸을 남서, 북동 대각선으로 배치할 수 있는지 조사
-	public static boolean checkDiagSW(int[][] d, int cx, int cy) { // x++, y-- or x--, y++ where 0<= x,y <= 7
-		int c = cx + cy;
-		for (int i = Math.max(0, c - 7); i <= Math.min(7, c); i++) {
-			if (d[i][c - i] == 1)
-				return false;
-		}
-		return true;
-	}
-
-	
-	// 배열 d에서 행 cx, 열 cy에 퀸을 남동, 북서 대각선으로 배치할 수 있는지 조사
-	public static boolean checkDiagSE(int[][] d, int cx, int cy) {// x++, y++ or x--, y--
-		int c = cy - cx + 7;
-		for (int i = Math.max(0, c - 7); i <= Math.min(7, c); i++) {
-			if (d[i + 7 - c][i] == 1)
-				return false;
-		}
-		return true;
-	}
 
 	// 배열 d에서 (x,y)에 퀸을 배치할 수 있는지 조사
 	public static boolean checkMove(int[][] d, int x, int y) {// (x,y)로 이동 가능한지를 check
-		if (checkRow(d, x) && checkCol(d, y) && checkDiagSE(d, x, y) && checkDiagSW(d, x, y)) {
+		if (checkRow(d, x) && checkCol(d, y)) {
 			return true;
 		}
 		return false;
@@ -136,7 +112,7 @@ public class Chap5_Test_QueenEight_4회차 {
 		return -1;
 	}
 
-	static void showQueens(int[][] data) {// 배열 출력
+	static void showRooks(int[][] data) {// 배열 출력
 		for (int i = 0; i <= 7; i++) {
 			for (int j = 0; j <= 7; j++) {
 				System.out.print(data[i][j] + " ");
@@ -152,6 +128,6 @@ public class Chap5_Test_QueenEight_4회차 {
 			for (int j = 0; j < data[0].length; j++)
 				data[i][j] = 0;
 
-		solveQueen(data);
+		solveRook(data);
 	}
 }

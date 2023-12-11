@@ -9,7 +9,7 @@ public class MaxBishop {
     static int total = 0;
     static boolean[] matrix = new boolean[DIM_SQ];
 
-    static int maxBishops = 0;
+    static int maxBishops = 14;
 
     public static void main(String[] args) {
         maxBishop(0,0);

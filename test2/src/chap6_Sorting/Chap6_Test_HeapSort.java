@@ -16,22 +16,44 @@ class Heap implements MaxHeap {
 	
 	public Heap(int sz) {
 		MaxSize = sz;
-		heap = new int[MaxSize];
+		heap = new int[MaxSize+1];
 	}
 
 	public void display() {
-		System.out.println();
-		for (int i : heap) {
-			System.out.print(i+" ");
+		System.out.print("\n[ ");
+		for (int i=1;i<n+1 ; i++) {
+			System.out.print(heap[i]+" ");
 		}
+		System.out.println("]");
 	}
 	@Override
 	public void Insert(int x) {
-		
+		int i;
+		if(HeapFull()) return;
+		n++;
+		for(i = n;i>0;) {
+			if(i==1) break;
+			if(x<=heap[i/2]) break;
+			heap[i] = heap[i/2];
+			i /= 2;
+		}
+		heap[i] = x;
 	}
 	@Override
 	public int DeleteMax() {
-		return 1;
+		int i,j;
+		if(HeapEmpty()) return 0;
+		int x = heap[1];
+		int k = heap[n--];
+		for(i=1,j=2;j<=n;) {
+			if(j<n) if(heap[j]<heap[j+1]) j++;
+			if(k>=heap[j]) break;
+			heap[i]=heap[j];
+			i=j;
+			j*=2;
+		}
+		heap[i] = k;
+		return x;
 	}
 
 	public boolean HeapEmpty() {
@@ -58,20 +80,23 @@ public class Chap6_Test_HeapSort {
 	 }
 	public static void main(String[] args) {
 		Random rnd = new Random();
-		int select = 0;
+		int select;
 		Scanner stdIn = new Scanner(System.in);
-		Heap heap = new Heap(20);
-	    final int count = 10;
-	    int[] x = new int[count+1];
-	    int []sorted = new int[count];
-
+	    final int size = 20;
+		Heap heap = new Heap(size);
+	    int[] x = new int[size];
+	    int []sorted = new int[size];
+	    int count = 0;
 		do {
 			System.out.println("Max Tree. Select: 1 insert, 2 display, 3 sort, 4 exit => ");
 			select = stdIn.nextInt();
 			switch (select) {
 			case 1:
 				if(!heap.HeapFull()) {
-					
+					int data = rnd.nextInt(20)+1;
+					x[count++] = data;
+					System.out.println("삽입된 데이터 : "+data);
+					heap.Insert(data);
 				}
 				break;
 			case 2:
@@ -79,16 +104,22 @@ public class Chap6_Test_HeapSort {
 				break;
 			case 3:
 				if(!heap.HeapEmpty()) {
-					
+					System.out.println("정렬 전: ");
+					showData(x);
+					int idx = size-1;
+					while(!heap.HeapEmpty()) {
+						sorted[idx--] = heap.DeleteMax();
+					}
+					System.out.println("정렬 후: ");
+					showData(sorted);
 				}
 				break;
-
 			case 4:
+				stdIn.close();
 				return;
-
 			}
 		} while (select < 5);
-
+		stdIn.close();
 		return;
 	}
 }
