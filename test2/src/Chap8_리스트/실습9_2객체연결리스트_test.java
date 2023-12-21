@@ -24,6 +24,9 @@ class SimpleObject {
 	public SimpleObject() {
 		no = null;name = null;
 	}
+	public int getNo() {
+		return this.NO;
+	}
 	// --- 데이터를 읽어 들임 ---//
 	void scanData(String guide, int sw) {
 		Scanner sc = new Scanner(System.in);
@@ -76,20 +79,68 @@ class LinkedList2 {
 
 	public int Delete(SimpleObject element, Comparator<SimpleObject> cc) //delete the element
 	{
-
+		Node2 temp = first;
+		if(temp==null) {
+			System.out.println("리스트가 비었습니다.");
+			return -1;
+		}
+		if(cc.compare(temp.data, element)==0) {
+			first = temp.link;
+			return element.getNo();
+		}
+		while(temp.link!=null) {
+			if(cc.compare(temp.link.data, element)==0) {
+				temp.link = temp.link.link;
+				return element.getNo();
+			}
+			temp = temp.link;
+		}
+		System.out.println("입력한 값이 없습니다.");
+		return -1;
 	}
 	public void Show() { // 전체 리스트를 순서대로 출력한다.
-
+		Node2 temp = first;
+		while(temp!=null) {
+			System.out.println(temp.data);
+			temp = temp.link;
+		}
 	}
 	public void Add(SimpleObject element, Comparator<SimpleObject> cc) //임의 값을 삽입할 때 리스트가 오름차순으로 정렬이 되도록 한다
 	{
-
+		if(first==null) {
+			first = new Node2(element);
+			return;
+		}
+		Node2 newNode = new Node2(element);
+		Node2 temp = first;
+		if(cc.compare(temp.data, newNode.data)>=0) {
+			newNode.link = temp;
+			first = newNode;
+			return;
+		}
+		while(temp.link!=null) {
+			if(cc.compare(temp.link.data, newNode.data)>=0) {
+				newNode.link = temp.link;
+				temp.link = newNode;
+				return;
+			}
+			temp = temp.link;
+		}
+		temp.link = newNode;
+		return;
 	}
 	public boolean Search(SimpleObject element, Comparator<SimpleObject> cc) { // 전체 리스트를 순서대로 출력한다.
-
+		Node2 temp = first;
+		while(temp!=null) {
+			if(cc.compare(temp.data,element)==0) {
+				return true;
+			}
+			temp = temp.link;
+		}
+		return false;
 	}
 }
-public class 객체연결리스트 {
+public class 실습9_2객체연결리스트_test {
 
 	 enum Menu {
 	        Add( "삽입"),

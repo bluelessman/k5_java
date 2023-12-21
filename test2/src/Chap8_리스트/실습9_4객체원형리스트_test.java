@@ -100,7 +100,7 @@ class CircularList {
 	}
 }
 
-public class 객체원형리스트 {
+public class 실습9_4객체원형리스트_test {
 	enum Menu {
 		Add("삽입"), Delete("삭제"), Show("인쇄"), Search("검색"), Exit("종료");
 

@@ -24,10 +24,28 @@ class LinkedList1 {
 
 	public int Delete(int element) // delete the element
 	{
-
+		Node1 temp = first;
+		if(temp.data==element) {
+			first = temp.link;
+			return element;
+		}
+		while(temp.link!=null) {
+			if(temp.link.data==element) {
+				temp.link = temp.link.link;
+				return element;
+			}
+			temp = temp.link;
+		}
+		System.out.println("입력한 값이 없습니다.");
+		return -1;
 	}
 
 	public void Show() { // 전체 리스트를 순서대로 출력한다.
+		Node1 temp = first;
+		while(temp!=null) {
+			System.out.print(temp.data+" ");
+			temp = temp.link;
+		}
 
 	}
 
@@ -45,13 +63,28 @@ class LinkedList1 {
 		}
 			Node1 temp = first;
 			while(temp.link!=null) {
-				
+				if(element<=temp.link.data) {
+					Node1 addNode = new Node1(element);
+					addNode.link = temp.link;
+					temp.link = addNode;
+					return;
+				}
+				temp = temp.link;
 			}
+			Node1 addNode = new Node1(element);
+			temp.link = addNode;
+			return;
 		}
-	}
 
 	public boolean Search(int data) { // 전체 리스트를 순서대로 출력한다.
-		return true;
+		Node1 temp = first;
+		while(temp!=null) {
+			if(temp.data==data) {
+				return true;
+			}
+			temp = temp.link;
+		}
+		return false;
 	}
 }
 
@@ -90,7 +123,7 @@ public class 정수연결리스트 {
 			System.out.print(" : ");
 			key = sc.nextInt();
 		} while (key < Menu.Add.ordinal() || key > Menu.Exit.ordinal());
-		sc.close();
+		System.out.println(Menu.MenuAt(key));
 		return Menu.MenuAt(key);
 	}
 
@@ -130,6 +163,7 @@ public class 정수연결리스트 {
 			case Exit: // 꼬리 노드 삭제
 				break;
 			}
+//			System.out.println(l.first.data);
 		} while (menu != Menu.Exit);
 		sc.close();
 	}
