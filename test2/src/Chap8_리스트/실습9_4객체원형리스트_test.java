@@ -41,6 +41,7 @@ class SimpleObject3 {
 			System.out.print("이름: ");
 			name = sc.next();
 		}
+		sc.close();
 	}
 
 	// --- 회원번호로 순서를 매기는 comparator ---//
@@ -78,25 +79,87 @@ class CircularList {
 	Node3 first;
 
 	public CircularList() { //head node
-
+		first = null;
 	}
 
 	public int Delete(SimpleObject3 element, Comparator<SimpleObject3> cc) // delete the element
 	{
-
+		Node3 temp = first;
+		if(temp==null) {
+			System.err.println("리스트가 비었습니다");
+			return -1;
+		}
+		while(temp.link!=first) {
+			if(cc.compare(element, temp.link.data)==0) {
+				temp.link = temp.link.link;
+				return 1;
+			}
+			temp = temp.link;
+		}
+		if(cc.compare(element, temp.link.data)==0) {
+			if(temp==first) {
+				first = null;
+				return 1;
+			}
+			temp.link = temp.link.link;
+			first = temp.link;
+			return 1;
+			
+		}
+		System.err.println("리스트에 값이 없습니다.");
+		return -1;
 	}
 
 	public void Show() { // 전체 리스트를 순서대로 출력한다.
-
+		Node3 temp = first;
+		if(temp==null) {
+			System.err.println("리스트가 비었습니다");
+			return;
+		}
+		while(temp.link!= first) {
+			System.out.print(temp.data+"  ");
+			temp = temp.link;
+		}
+		System.out.println(temp.data);
 	}
 
 	public void Add(SimpleObject3 element, Comparator<SimpleObject3> cc) // 임의 값을 삽입할 때 리스트가 오름차순으로 정렬이 되도록 한다
 	{
-
+		Node3 addNode = new Node3(element);
+		if(first==null) {
+			first = addNode;
+			first.link = first;
+			return;
+		}
+		Node3 temp = first;
+		if(cc.compare(first.data, element)>=0) {
+			while(temp.link!= first) {
+				temp = temp.link;
+			}
+			addNode.link = temp.link;
+			temp.link = addNode;
+			first = addNode;
+			return;
+		}
+		while(cc.compare(temp.link.data, element)<0&&temp.link!= first) {
+			temp = temp.link;
+		}
+		addNode.link = temp.link;
+		temp.link = addNode;
+		return;
 	}
 
 	public boolean Search(SimpleObject3 element, Comparator<SimpleObject3> cc) { // 전체 리스트를 순서대로 출력한다.
-
+		Node3 temp = first;
+		if(temp==null) {
+			System.err.println("리스트가 비었습니다");
+			return false;
+		}
+		while(temp.link!=first) {
+			if(cc.compare(element, temp.data)==0) return true;
+			temp = temp.link;
+		}
+		return cc.compare(element, temp.data)==0?true:false;
 	}
 }
 
@@ -135,6 +198,7 @@ public class 실습9_4객체원형리스트_test {
 			System.out.print(" : ");
 			key = sc.nextInt();
 		} while (key < Menu.Add.ordinal() || key > Menu.Exit.ordinal());
+		sc.close();
 		return Menu.MenuAt(key);
 	}
 
@@ -172,6 +236,7 @@ public class 실습9_4객체원형리스트_test {
 					System.out.println("검색 실패 = " + result);
 				break;
 			case Exit: // 꼬리 노드 삭제
+				sc.close();
 				break;
 			}
 		} while (menu != Menu.Exit);
